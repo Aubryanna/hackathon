@@ -2,6 +2,14 @@ from drafter import *
 from drafter.llm import *
 from dataclasses import dataclass
 
+set_site_information(
+    author="ajarchow@udel.edu",
+    description="Ecotourism finders",
+    sources="[Official Drafter Documentation Only]",
+    planning="",
+    links=["https://github.com/Aubryanna/hackathon.git"]
+)
+
 set_gemini_server("https://drafter-gemini-proxy.devikar.workers.dev")
 
 
