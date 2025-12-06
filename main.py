@@ -2,7 +2,7 @@ from drafter import *
 from drafter.llm import *
 from dataclasses import dataclass
 
-#set_gemini_server("https://drafter-gemini-proxy.devikar.workers.dev")
+set_gemini_server("https://drafter-gemini-proxy.devikar.workers.dev")
 
 
 @dataclass
@@ -386,7 +386,7 @@ def send_message(state: State, user_message: str) -> Page:
     user_msg = LLMMessage("user", user_message)
     state.conversation.append(user_msg)
 
-    result = call_gemini(state.conversation, api_key="AIzaSyBQwYsmX_WXVIwFwXsr6YxRBSwNTgjwdWU")
+    result = call_gemini(state.conversation)
 
     # Handle the result
     if isinstance(result, LLMResponse):
@@ -436,7 +436,7 @@ def pick_best_trip(state: State, month: str) -> Page:
     prompt += f"\n\nWhich of these trips would be closest to or most appealing from {state.region}? Answer with just the location name (e.g., 'California' or 'Costa Rica')."
     
     conversation = [LLMMessage("user", prompt)]
-    result = call_gemini(conversation, "AIzaSyBQwYsmX_WXVIwFwXsr6YxRBSwNTgjwdWU")
+    result = call_gemini(conversation)
 
     if isinstance(result, LLMResponse):
         # Extract the best trip from Gemini's response
