@@ -11,7 +11,7 @@ set_site_information(
 )
 
 set_gemini_server("https://drafter-gemini-proxy.devikar.workers.dev")
-hide_debug_information()
+
 
 @dataclass
 class Trip:
